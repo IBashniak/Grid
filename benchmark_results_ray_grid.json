@@ -1,0 +1,32 @@
+{
+  "benchmark_type": "Ray_Grid_Cluster",
+  "timestamp": "2026-11-18T11:35:16.505107+00:00",
+  "cluster_info": {
+    "num_nodes": 1,
+    "total_cpus": 20,
+    "node_ips": [
+      "10.14.0.2"
+    ]
+  },
+  "config": {
+    "trials": 5000000,
+    "chunk_size": 83334,
+    "k_fault": 5
+  },
+  "performance": {
+    "execution_time_sec": 74.3389,
+    "throughput_trials_per_sec": 67259.53,
+    "speedup_vs_single_cpu": 8.94,
+    "cluster_efficiency_percent": 44.7
+  },
+  "metrics": {
+    "blackout_probability": 0.0,
+    "top_critical_branches": [
+      185,
+      21,
+      96,
+      17,
+      117
+    ]
+  }
+}

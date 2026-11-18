@@ -17,7 +17,7 @@
 Создай решение со следующей структурой каталогов и файлов:
 
 ```text
-source/grid-ray/
+source/grid_ray/
 ├── __init__.py
 ├── topology.py          # Шаг 1: Адаптация топологии сети и помещение в Ray Object Store
 ├── ray_engine.py        # Шаг 2: Распределенные воркеры (@ray.remote) и выполнение испытаний
@@ -176,8 +176,8 @@ docs/
 ## 8. Definition of Done (Критерии приемки)
 
 ### DoD для человека (ручная проверка ментором):
-- [ ] Все файлы созданы в каталогах `source/grid-ray/`, `tests/`, `docs/`.
-- [ ] Локальный запуск `python source/grid-ray/run.py local --trials 1000 --cpus 2` отрабатывает без ошибок (код 0).
+- [ ] Все файлы созданы в каталогах `source/grid_ray/`, `tests/`, `docs/`.
+- [ ] Локальный запуск `python source/grid_ray/run.py local --trials 1000 --cpus 2` отрабатывает без ошибок (код 0).
 - [ ] Сгенерирован файл `benchmark_results_ray_grid.json`, содержащий блоки `cluster_info`, `performance` и `metrics`.
 - [ ] Топология сети передается через `ray.put()`, исключая повторную передачу копий графа.
 - [ ] Диспетчер задач использует `ray.wait()` для защиты от задержек медленных узлов.
