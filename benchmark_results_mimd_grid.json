@@ -1,0 +1,24 @@
+{
+  "benchmark_type": "MIMD_CPU_Grid",
+  "timestamp": "2026-11-18T09:43:58.062149+00:00",
+  "config": {
+    "trials": 10000,
+    "workers": 4,
+    "k_fault": 2
+  },
+  "performance": {
+    "execution_time_sec": 0.3738,
+    "throughput_trials_per_sec": 26750.16,
+    "speedup": 2.95
+  },
+  "metrics": {
+    "blackout_probability": 0.0,
+    "top_critical_branches": [
+      88,
+      133,
+      32,
+      39,
+      170
+    ]
+  }
+}
