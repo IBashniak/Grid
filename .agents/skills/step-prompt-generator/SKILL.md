@@ -20,17 +20,17 @@ description: >-
 | Этап ($N$) | Название и тема | Ключевые технологии | Директория кода | Референсы в курсе |
 | :---: | :--- | :--- | :--- | :--- |
 | **1** | **MIMD на CPU** | `multiprocessing.Pool`, GIL, изоляция Seed, N-k аварии, каскады, экспорт JSON | `source/grid-mimd/` | `cloud_grid/source/mimd-pc/`<br>`docs/p01_neutron_monte_carlo.md` |
-| **2** | **Грид-кластер (Ray Grid)** | Ray cluster (LAN / Wi-Fi без Docker), `ray.remote`, `ray.put` (Zero-copy Shared Memory), `ray.wait` (борьба со Stragglers), закон Густафсона | `source/grid-ray/` | `cloud_grid/source/ray-grid/`<br>`docs/p02_ray_grid.md` |
-| **3** | **Docker & Microservices** | Dockerfile, Docker Compose, Web UI + API Backend + Redis/Queue + Background Worker, изоляция cgroups/namespaces, healthchecks | `source/grid-docker/` | `cloud_grid/source/docker-web/`<br>`docs/p03_docker_web.md`<br>`docs/03_isolation_mechanics.md` |
-| **4** | **Cloud & Orchestration** | Kubernetes manifests (`Deployment`, `Job`, `ConfigMap`, `Secret`), CPU/RAM `requests`/`limits`, QoS классы, автоскейлинг воркеров (HPA/KEDA), `benchmark_k8s.json` | `source/grid-k8s/` | `cloud_grid/source/k8s/`<br>`docs/p04_k8s_orchestration.md`<br>`docs/07_k8s_orchestration_resources.md` |
-| **5** | **Chaos & FinOps** | OpenTelemetry/Jaeger distributed tracing, Chaos engineering (SIGKILL, OOMKilled 137), перехват SIGTERM и чекпоинты (формула Янга/Дейли $\tau \approx \sqrt{2 \delta M}$), P90/P99 латентность, FinOps Spot TCO | `source/grid-chaos-finops/` | `cloud_grid/source/chaos-finops/`<br>`docs/p05_chaos_finops.md`<br>`docs/08_observability_troubleshooting.md`<br>`docs/10_finops_resilience_synthesis.md` |
+| **2** | **Грид-кластер (Ray Grid)** | Ray cluster (LAN / Wi-Fi без Docker), `ray.remote`, `ray.put` (Zero-copy Shared Memory), `ray.wait` (борьба со Stragglers), закон Густафсона | `source/grid_ray/` | `cloud_grid/source/ray-grid/`<br>`docs/p02_ray_grid.md` |
+| **3** | **Docker & Microservices** | Dockerfile, Docker Compose, Web UI + API Backend + Redis/Queue + Background Worker, изоляция cgroups/namespaces, healthchecks | `source/grid_docker/` | `cloud_grid/source/docker-web/`<br>`docs/p03_docker_web.md`<br>`docs/03_isolation_mechanics.md` |
+| **4** | **Cloud & Orchestration** | Kubernetes manifests (`Deployment`, `Job`, `ConfigMap`, `Secret`), CPU/RAM `requests`/`limits`, QoS классы, автоскейлинг воркеров (HPA/KEDA), `benchmark_k8s.json` | `source/grid_k8s/` | `cloud_grid/source/k8s/`<br>`docs/p04_k8s_orchestration.md`<br>`docs/07_k8s_orchestration_resources.md` |
+| **5** | **Chaos & FinOps** | OpenTelemetry/Jaeger distributed tracing, Chaos engineering (SIGKILL, OOMKilled 137), перехват SIGTERM и чекпоинты (формула Янга/Дейли $\tau \approx \sqrt{2 \delta M}$), P90/P99 латентность, FinOps Spot TCO | `source/grid_chaos_finops/` | `cloud_grid/source/chaos-finops/`<br>`docs/p05_chaos_finops.md`<br>`docs/08_observability_troubleshooting.md`<br>`docs/10_finops_resilience_synthesis.md` |
 
 ---
 
 ## 2. Железные правила генерации ТЗ (`step<N>.md`)
 
 1. **Изоляция и обратная совместимость:**
-   - Новый этап создается в **отдельной папке** (`source/grid-<tech>/`).
+   - Новый этап создается в **отдельной папке** (`source/grid_<tech>/`, используя нижнее подчеркивание `snake_case` для валидного имени Python-пакета).
    - Файлы предыдущих этапов **никогда не изменяются и не удаляются**.
    - Тесты для нового этапа добавляются в `tests/` как новые отдельные файлы (`test_<tech>_*.py`), чтобы старые тесты продолжали проходить 100%.
 
@@ -62,7 +62,7 @@ description: >-
 
 ### 2. Структура создаваемых файлов
 Дерево каталогов с указанием конкретных имен:
-- `source/grid-<tech>/` (модули решения, точка входа CLI).
+- `source/grid_<tech>/` (модули решения, точка входа CLI).
 - `tests/` (минимум 2–3 новых файла тестов на pytest).
 - `docs/` (`stage<N>_explanation.md` и `stage<N>_complex_concepts.md`).
 
@@ -138,5 +138,5 @@ description: >-
 1. Определи номер шага $N$.
 2. Возьми соответствующую строку из матрицы этапов и карту `[DEEP DIVE]`.
 3. Сгенерируй полноценный, детальный, законченный Markdown-файл `Igor-grid/step<N>.md` строго по 8 каноническим разделам.
-4. Убедись, что все пути ведут в `source/grid-<tech>/`, тесты в `tests/test_<tech>_*.py`, а документация включает ОБА файла: `stage<N>_explanation.md` и `stage<N>_complex_concepts.md`.
+4. Убедись, что все пути ведут в `source/grid_<tech>/`, тесты в `tests/test_<tech>_*.py`, а документация включает ОБА файла: `stage<N>_explanation.md` и `stage<N>_complex_concepts.md`.
 5. Предоставь пользователю краткий дайджест с кликабельной ссылкой на созданный файл `step<N>.md`.

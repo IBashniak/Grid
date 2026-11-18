@@ -20,16 +20,16 @@
 | Этап ($N$) | Архитектура и тема | Стек и технологии | Папка реализации |
 | :---: | :--- | :--- | :--- |
 | **1** | **MIMD на CPU** (локальный ПК) | `multiprocessing.Pool`, GIL, изоляция seed, N-k аварии, каскадный алгоритм | `source/grid-mimd/` |
-| **2** | **Грид-кластер (Ray Grid)** | Ray cluster (LAN без Docker), `ray.remote`, Object Store `ray.put`, `ray.wait` (борьба со Stragglers), закон Густафсона | `source/grid-ray/` |
-| **3** | **Docker & Microservices** | Docker Compose, Web UI + API Backend + Redis Queue + Workers, изоляция cgroups/namespaces, healthchecks | `source/grid-docker/` |
-| **4** | **Cloud & Orchestration** | Kubernetes manifests (`Job`, `Deployment`), limits/requests, автоскейлинг HPA/KEDA по очереди, `benchmark_k8s.json` | `source/grid-k8s/` |
-| **5** | **Chaos & FinOps** | OpenTelemetry/Jaeger трейсинг, Chaos injection (SIGKILL, OOM 137), чекпоинты Янга/Дейли ($\tau \approx \sqrt{2 \delta M}$), FinOps Spot TCO | `source/grid-chaos-finops/` |
+| **2** | **Грид-кластер (Ray Grid)** | Ray cluster (LAN без Docker), `ray.remote`, Object Store `ray.put`, `ray.wait` (борьба со Stragglers), закон Густафсона | `source/grid_ray/` |
+| **3** | **Docker & Microservices** | Docker Compose, Web UI + API Backend + Redis Queue + Workers, изоляция cgroups/namespaces, healthchecks | `source/grid_docker/` |
+| **4** | **Cloud & Orchestration** | Kubernetes manifests (`Job`, `Deployment`), limits/requests, автоскейлинг HPA/KEDA по очереди, `benchmark_k8s.json` | `source/grid_k8s/` |
+| **5** | **Chaos & FinOps** | OpenTelemetry/Jaeger трейсинг, Chaos injection (SIGKILL, OOM 137), чекпоинты Янга/Дейли ($\tau \approx \sqrt{2 \delta M}$), FinOps Spot TCO | `source/grid_chaos_finops/` |
 
 ---
 
 ## 🛡️ Железные принципы каждого ТЗ
 
-1. **Изоляция:** Каждый шаг живет в своей изолированной папке `source/grid-<tech>/`. Никаких правок или разрушений кода предыдущих этапов!
+1. **Изоляция:** Каждый шаг живет в своей изолированной папке `source/grid_<tech>/` (с использованием нижнего подчеркивания `snake_case` для валидного импорта пакетов Python). Никаких правок или разрушений кода предыдущих этапов!
 2. **Два обязательных обучающих документа в `docs/`:**
    - `stage<N>_explanation.md`: архитектура, жизненный цикл и практическая инструкция по запуску.
    - `stage<N>_complex_concepts.md`: 5 сложных концепций этапа простым языком (аналогия $\to$ под капотом $\to$ Bad vs Good код $\to$ решение в проекте $\to$ шпаргалка вопросов на защите).
