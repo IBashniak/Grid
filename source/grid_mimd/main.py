@@ -2,7 +2,7 @@
 Консольная точка входа (CLI) для Этапа 1 (Шаг 5).
 
 Пример использования:
-    python source/grid-mimd/main.py --trials 10000 --workers 4 --k 2
+    python source/grid_mimd/main.py --trials 10000 --workers 4 --k 2
 """
 
 from __future__ import annotations

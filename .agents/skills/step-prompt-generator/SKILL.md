@@ -19,7 +19,7 @@ description: >-
 
 | Этап ($N$) | Название и тема | Ключевые технологии | Директория кода | Референсы в курсе |
 | :---: | :--- | :--- | :--- | :--- |
-| **1** | **MIMD на CPU** | `multiprocessing.Pool`, GIL, изоляция Seed, N-k аварии, каскады, экспорт JSON | `source/grid-mimd/` | `cloud_grid/source/mimd-pc/`<br>`docs/p01_neutron_monte_carlo.md` |
+| **1** | **MIMD на CPU** | `multiprocessing.Pool`, GIL, изоляция Seed, N-k аварии, каскады, экспорт JSON | `source/grid_mimd/` | `cloud_grid/source/mimd-pc/`<br>`docs/p01_neutron_monte_carlo.md` |
 | **2** | **Грид-кластер (Ray Grid)** | Ray cluster (LAN / Wi-Fi без Docker), `ray.remote`, `ray.put` (Zero-copy Shared Memory), `ray.wait` (борьба со Stragglers), закон Густафсона | `source/grid_ray/` | `cloud_grid/source/ray-grid/`<br>`docs/p02_ray_grid.md` |
 | **3** | **Docker & Microservices** | Dockerfile, Docker Compose, Web UI + API Backend + Redis/Queue + Background Worker, изоляция cgroups/namespaces, healthchecks | `source/grid_docker/` | `cloud_grid/source/docker-web/`<br>`docs/p03_docker_web.md`<br>`docs/03_isolation_mechanics.md` |
 | **4** | **Cloud & Orchestration** | Kubernetes manifests (`Deployment`, `Job`, `ConfigMap`, `Secret`), CPU/RAM `requests`/`limits`, QoS классы, автоскейлинг воркеров (HPA/KEDA), `benchmark_k8s.json` | `source/grid_k8s/` | `cloud_grid/source/k8s/`<br>`docs/p04_k8s_orchestration.md`<br>`docs/07_k8s_orchestration_resources.md` |

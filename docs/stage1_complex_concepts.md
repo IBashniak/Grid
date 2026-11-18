@@ -68,7 +68,7 @@ for t in threads: t.join()
 ```
 
 ### ✅ Как сделано у нас в проекте
-В файле `source/grid-mimd/benchmark.py`:
+В файле `source/grid_mimd/benchmark.py`:
 ```python
 # ПРАВИЛЬНО: Создание независимых процессов операционной системы
 import multiprocessing
@@ -120,7 +120,7 @@ Worker ──[pickle: один сжатый словарь-итог]──> Main
 ---
 
 ### ✅ Как это решено у нас в проекте
-В файле `source/grid-mimd/engine.py` функция воркера объявлена строго на верхнем уровне, а внутри нее результаты агрегируются в компактный словарь:
+В файле `source/grid_mimd/engine.py` функция воркера объявлена строго на верхнем уровне, а внутри нее результаты агрегируются в компактный словарь:
 ```python
 def simulate_trials_chunk(args_tuple: Tuple[Any, ...]) -> Dict[str, Any]:
     chunk_id, num_trials, base_seed, k_fault, topo_data = args_tuple
@@ -186,7 +186,7 @@ with Pool(2) as p:
 ```
 
 ### ✅ Как сделано у нас в проекте
-В файле `source/grid-mimd/engine.py`:
+В файле `source/grid_mimd/engine.py`:
 Мы полностью изолируем генераторы: каждому испытанию выдается индивидуальный объект `random.Random` со строго детерминированным уникальным номером зерна:
 ```python
 def run_single_trial(topo_data: GridTopology, k_fault: int, seed: int):
@@ -276,7 +276,7 @@ if abs(flow) > capacity:
 Реле моментально отключат все трансформаторы, энергосистема развалится в первую же микросекунду, и симулятор зафиксирует 100% ложных блэкаутов.
 
 ### ✅ Как это решено у нас в проекте
-В файле `source/grid-mimd/topology.py` реализована санитарная функция:
+В файле `source/grid_mimd/topology.py` реализована санитарная функция:
 ```python
 def sanitize_branch_capacity(raw_capacity: float, initial_flow: float) -> float:
     """

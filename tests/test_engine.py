@@ -16,7 +16,7 @@ from pathlib import Path
 import pytest
 
 # Подключение пути к исходному коду
-SOURCE_DIR = Path(__file__).resolve().parents[1] / "source" / "grid-mimd"
+SOURCE_DIR = Path(__file__).resolve().parents[1] / "source" / "grid_mimd"
 if str(SOURCE_DIR) not in sys.path:
     sys.path.insert(0, str(SOURCE_DIR))
 

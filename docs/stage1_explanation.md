@@ -86,7 +86,7 @@
 
 Рассмотрим, что происходит в операционной системе, когда пользователь выполняет команду:
 ```bash
-python source/grid-mimd/main.py --trials 10000 --workers 4 --k 2
+python source/grid_mimd/main.py --trials 10000 --workers 4 --k 2
 ```
 
 1. **Парсинг аргументов (CLI Phase):**
@@ -179,12 +179,12 @@ conda activate grid
 ### 5.2. Запуск основного бенчмарка
 Запуск симуляции 10 000 испытаний на 4 ядрах процессора с первичной аварией степени $k=2$:
 ```bash
-python source/grid-mimd/main.py --trials 10000 --workers 4 --k 2
+python source/grid_mimd/main.py --trials 10000 --workers 4 --k 2
 ```
 
 Для быстрого теста на 1 000 испытаний:
 ```bash
-python source/grid-mimd/main.py --trials 1000 --workers 2
+python source/grid_mimd/main.py --trials 1000 --workers 2
 ```
 
 ### 5.3. Запуск автоматических тестов (pytest)

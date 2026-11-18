@@ -19,7 +19,7 @@
 
 | Этап ($N$) | Архитектура и тема | Стек и технологии | Папка реализации |
 | :---: | :--- | :--- | :--- |
-| **1** | **MIMD на CPU** (локальный ПК) | `multiprocessing.Pool`, GIL, изоляция seed, N-k аварии, каскадный алгоритм | `source/grid-mimd/` |
+| **1** | **MIMD на CPU** (локальный ПК) | `multiprocessing.Pool`, GIL, изоляция seed, N-k аварии, каскадный алгоритм | `source/grid_mimd/` |
 | **2** | **Грид-кластер (Ray Grid)** | Ray cluster (LAN без Docker), `ray.remote`, Object Store `ray.put`, `ray.wait` (борьба со Stragglers), закон Густафсона | `source/grid_ray/` |
 | **3** | **Docker & Microservices** | Docker Compose, Web UI + API Backend + Redis Queue + Workers, изоляция cgroups/namespaces, healthchecks | `source/grid_docker/` |
 | **4** | **Cloud & Orchestration** | Kubernetes manifests (`Job`, `Deployment`), limits/requests, автоскейлинг HPA/KEDA по очереди, `benchmark_k8s.json` | `source/grid_k8s/` |

@@ -29,7 +29,7 @@
 ```text
 Igor-grid/
 ├── source/
-│   └── grid-mimd/             # Исходный код Этапа 1 (MIMD на CPU)
+│   └── grid_mimd/             # Исходный код Этапа 1 (MIMD на CPU)
 │       ├── __init__.py
 │       ├── topology.py        # Датаклассы сети, граф IEEE-118, санитария Z-score
 │       ├── engine.py          # Изолированный run_single_trial и воркер simulate_trials_chunk
@@ -63,12 +63,12 @@ conda activate grid
 ### 2. Запуск симуляции (Бенчмарк MIMD)
 Запуск 10 000 испытаний на 4 воркерах с первичным отключением $k=2$ линий:
 ```bash
-python source/grid-mimd/main.py --trials 10000 --workers 4 --k 2
+python source/grid_mimd/main.py --trials 10000 --workers 4 --k 2
 ```
 
 Для быстрого смоук-теста:
 ```bash
-python source/grid-mimd/main.py --trials 1000 --workers 2
+python source/grid_mimd/main.py --trials 1000 --workers 2
 ```
 
 Результаты сохраняются в структурированный файл `benchmark_results_mimd_grid.json`.
